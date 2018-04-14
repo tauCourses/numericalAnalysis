@@ -1,3 +1,7 @@
+%{
+creates myLogRes files for both myLog and myLog2
+calc the error according as required in the exercise. 
+%}
 functions = {@(a,x)myLog(a,x) @(a,x)myLog2(a,x)};
 tests = [2 16; 2 2^20; 0.1 2^20; 12345 0.12456];
 outputFiles = {'myLogRes.txt' 'myLogRes2.txt'};

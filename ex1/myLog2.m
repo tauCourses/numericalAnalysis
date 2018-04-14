@@ -1,8 +1,11 @@
 function y=myLog2(a,x)
+%{
+The same as myLog but instead of using exp function using myExp
+%}
 assert(a>0 && a~=1, 'a is illegal  value')
 assert(x>0, 'x is illegal  value')
 
-tol = 10^-10;
+tol = 10^-9;
 lowerBound = -1;
 if(a < 1)
     lowerBound = 1;
@@ -26,13 +29,15 @@ end
 
 %calc ln_b (works just for abs(b-1)<1)
 b = b-1;
-ln_b = b-b^2/2+b^3/3;
+ln_b = b-b^2/2+b^3/3; %always use the first 3 elements
+multi_b = b*b*b;
 ii=4;
 while abs(b^ii) > tol
+    multi_b = multi_b*b;
     if mod(ii,2) == 0
-        ln_b = ln_b - b^ii/ii;
+        ln_b = ln_b - multi_b/ii;
     else
-        ln_b = ln_b + b^ii/ii;
+        ln_b = ln_b + multi_b/ii;
     end
     ii = ii+1;
 end
@@ -41,6 +46,6 @@ end
 ln_a = 2^-k * ln_b;
 [res, ] = NewtonRaphson(@(z)myExp(a,z,ln_a,tol)-x,...
                         @(z)myExp(a,z,ln_a,tol)*ln_a, ...
-                        tol,lowerBound,upperBound);
+                        tol,lowerBound,upperBound); 
 y = res;
 end
