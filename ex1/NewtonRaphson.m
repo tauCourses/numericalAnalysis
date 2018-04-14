@@ -16,7 +16,10 @@ function [zero, Niters]=NewtonRaphson(func, functag, tol, a, b)
         if zero < a || zero >b 
             %fprintf('out!\n');
             midPointValue = func((a+b)/2);
-            if midPointValue>0
+            if midPointValue == 0
+                zero = midPointValue;
+                return
+            elseif midPointValue>0
                 if func(a)>0
                     a = (a+b)/2;
                 else

@@ -1,4 +1,4 @@
-function y=myLog(a,x)
+function y=myLog2(a,x)
 assert(a>0 && a~=1, 'a is illegal  value')
 assert(x>0, 'x is illegal  value')
 
@@ -39,8 +39,8 @@ end
 
 %get the final results:
 ln_a = 2^-k * ln_b;
-[res, ] = NewtonRaphson(@(z)exp(z*ln_a)-x,...
-                        @(z)exp(z*ln_a)*ln_a, ...
+[res, ] = NewtonRaphson(@(z)myExp(a,z,ln_a,tol)-x,...
+                        @(z)myExp(a,z,ln_a,tol)*ln_a, ...
                         tol,lowerBound,upperBound);
 y = res;
 end
