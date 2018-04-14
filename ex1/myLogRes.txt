@@ -1,0 +1,20 @@
+log_2.000000(16.000000)
+computed log: 4.000000
+matlab result: 4.000000
+err: -11.452081
+
+log_2.000000(1048576.000000)
+computed log: 20.000000
+matlab result: 20.000000
+err: -11.452097
+
+log_0.100000(1048576.000000)
+computed log: -6.020600
+matlab result: -6.020600
+err: -10.762701
+
+log_12345.000000(0.124560)
+computed log: -0.221098
+matlab result: -0.221098
+err: -12.114981
+

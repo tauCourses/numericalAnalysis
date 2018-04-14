@@ -21,7 +21,7 @@ b = a;
 k = 0;
 while abs(b-1) >= 1
     k = k-1;
-    b = a^(2^k); %it's just an integer power, a simple loop easily
+    b = a^(2^k); %it's just an integer power, a simple loop
 end
 
 %calc ln_b (works just for abs(b-1)<1)
