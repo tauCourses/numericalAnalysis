@@ -1,4 +1,6 @@
 function [yy] = HermiteInterp(x, y, ytag, xx)
+    global hermiteShparCache;
+     hermiteShparCache = containers.Map;
     temp = [1;1]*(1:length(x)); % for creation of dx
     hermiteIndexes = temp(:)';
     n = length(hermiteIndexes);

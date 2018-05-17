@@ -7,7 +7,7 @@ function [yy] = myLS(x, y, xx, n)
         multi = multi .* xt;
     end
     
-    coefficients = X\y'; 
+    coefficients = X\y';
     xxt = xx';
     multi = ones(length(xx),1);
     yy = zeros(length(xx),1);

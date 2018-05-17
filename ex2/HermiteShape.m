@@ -1,8 +1,6 @@
 function [yy] = HermiteShape(x, y, ytag, ser)
-    persistent cache;
-    if isempty(cache)
-        cache = containers.Map;
-    end
+    global hermiteShparCache;
+
     if length(ser) == 1
         yy = y(ser);
         return
@@ -13,13 +11,13 @@ function [yy] = HermiteShape(x, y, ytag, ser)
     
     key = char(ser);
     
-    if isKey(cache,key)
-        yy = cache(key);
+    if isKey(hermiteShparCache,key)
+        yy = hermiteShparCache(key);
         return;
     end
      
     yy = HermiteShape(x, y, ytag, ser(2:end)) - HermiteShape(x, y, ytag, ser(1:end-1));
     yy = yy / (x(ser(end)) - x(ser(1)));
     
-    cache(key) = yy;
+    hermiteShparCache(key) = yy;
 end
